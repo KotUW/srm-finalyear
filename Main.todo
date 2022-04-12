@@ -7,10 +7,10 @@ Backend:
     i.e Is there a merrit in seprating bloxkhain mining thingy from this backend for our demo.
 
 Blockchain:
-  ☐ Mining Should be done here @created(22-03-01 10:26)
+  ✔ Mining Should be done here @created(22-03-01 10:26) @done (22-04-13 02:13)
 
 Encryption:
-  ☐ Methouds to encrpt decrypt msg. from the users. This ideally should be done client side. @created(22-03-01 10:27)
+  ✔ Methouds to encrpt decrypt msg. from the users. This ideally should be done client side. @created(22-03-01 10:27) @done (22-04-13 02:13)
 
 Client:
   ☐ Make a small console client that uses above encrytption routines and the API to connect to blockchain backend. @created(22-03-01 10:28)

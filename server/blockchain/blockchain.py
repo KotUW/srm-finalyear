@@ -3,13 +3,13 @@ import datetime
 import hashlib
 
 class Block:
-    blockNo = 0
-    data = None
+    blockNo:int = 0
+    data:str = None
     nextp = None
-    hashb = None
-    nonce = 0
-    previous_hash = 0x0
-    timestamp = datetime.datetime.now()
+    hashb:str = None
+    nonce:int = 0
+    previous_hash:str = 0x0
+    timestamp:datetime.datetime = datetime.datetime.now()
 
     def __init__(self, data):
         self.data = data

@@ -25,7 +25,6 @@ class Block:
 
 
 class Blockchain:
-    unconfirmedMsgs = []
     chain = []
     difficulty = 1
 
@@ -69,24 +68,4 @@ class Blockchain:
         self.chain.append(blck)
         return True
 
-    def addNewMsg(self, msg) -> None:
-        self.unconfirmedMsgs.append(msg)
-    
-    def mine(self):
-        """Basic Mining Function that go through any unconfirmed transactions and try to append them to the blockchain"""
-        if not self.unconfirmedMsgs:
-            return False
-        
-        lstBlck = self.lastBlck
-
-        newBlck = Block(index=lstBlck.index + 1, 
-                        message = self.unconfirmedMsgs,
-                        timestamp = time.time(),
-                        prevHash = lstBlck.hash)
-        
-        proof = self.pow(newBlck)
-        self.addBlck(newBlck, proof)
-        self.unconfirmedMsgs = []
-
-        return newBlck.index
 

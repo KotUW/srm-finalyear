@@ -1,7 +1,7 @@
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'
 LETTERS = LETTERS.lower()
 
-def encrypt(message, key):
+def Encrypt(message, key):
     encrypted = ''
     for chars in message:
         if chars in LETTERS:
@@ -11,7 +11,7 @@ def encrypt(message, key):
 
     return encrypted
 
-def decrypt(message, key):
+def Decrypt(message, key):
     decrypted = ''
     for chars in message:
         if chars in LETTERS:

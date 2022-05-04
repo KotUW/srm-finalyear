@@ -2,10 +2,14 @@ github:
   prebuilds:
     branches: true
 
+gitConfig:
+  core.editor: nano
+  user.email: 46974369+KotUW@users.noreply.github.com
+
 tasks:
   - init: |
-      pyenv install 3.10
-      pyenv global 3.10
+      pyenv install 3.10.4
+      pyenv global 3.10.4
       pipenv install --deploy --dev
   - command: pipenv shell
 

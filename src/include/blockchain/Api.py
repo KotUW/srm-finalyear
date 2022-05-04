@@ -1,4 +1,3 @@
-from hashlib import new
 from multiprocessing.dummy import Array
 from MessageQueue import MessageQueue as MQ
 
@@ -13,6 +12,6 @@ class serv:
         """Publish to blockchain"""
         raise NotImplementedError()
 
-    def GetMsg(self) -> Array[str]:
+    def GetMsg(self) -> list:
         """Get all the msg the user has missed"""
         raise NotImplementedError()

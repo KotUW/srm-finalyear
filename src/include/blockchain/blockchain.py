@@ -4,11 +4,11 @@ import time
 # import json
 
 class Block:
-    id:int       # The Block number
-    msg:str      # An Array of messages user sent
-    tp:time      # The time of driving the proof (use for conflict resolution)
-    nounce:int   # The nounce. (required for the proof of work Implementation.)
-    prvHash:str  # The hash of the previous hash in the Block Chain
+    id:int         # The Block number
+    msg:list # An Array of messages user sent
+    tp:time        # The time of driving the proof (use for conflict resolution)
+    nounce:int     # The nounce. (required for the proof of work Implementation.)
+    prvHash:str    # The hash of the previous hash in the Block Chain
 
     def __init__(self, index, message, timestamp, prvHash, nounce=0):
         self.id = index
@@ -44,6 +44,7 @@ class Blockchain:
         self.difficulty = diff
 
     def CreateGenesisBlock(self) -> None:
+        """The First Block of the block chain"""
         genBlk = Block(0, [], time.time(), 0)
         genBlk.hash = genBlk.computeHash()
         

@@ -1,0 +1,11 @@
+github:
+  prebuilds:
+    branches: true
+
+tasks:
+  - init: pipenv install -q
+  - command: pipenv shell
+
+vscode:
+  extensions:
+    - ms-python.python

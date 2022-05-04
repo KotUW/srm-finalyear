@@ -28,7 +28,9 @@ class MessageQueue:
         return newBlck.id
 
     def addNewMsg(self, msg) -> None:
+        """Api to add msg to queue"""
         self.unconfirmedMsgs.append(msg)
 
     def getQueue(self) -> int:
+        """API to know length of current queue"""
         return len(self.unconfirmedMsgs)

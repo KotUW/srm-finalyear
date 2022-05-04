@@ -3,7 +3,10 @@ github:
     branches: true
 
 tasks:
-  - init: pipenv install -q
+  - init: |
+      pyenv install 3.10
+      pyenv global 3.10
+      pipenv install --deploy --dev
   - command: pipenv shell
 
 vscode:

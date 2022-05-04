@@ -4,5 +4,5 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.defaultInterpreterPath": "/workspace/srm-finalyear/.venv/bin/python"
+    "python.defaultInterpreterPath": "./.venv/bin/python"
 }

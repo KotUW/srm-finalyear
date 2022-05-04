@@ -1,12 +1,14 @@
 from Api import serv
 
+s = serv()
+
 def test_SendingMsg():
-    assert serv.PostMsg("This should be posted")
+    assert s.PostMsg("This should be posted")
 
 def test_PublishMsg():
-    assert serv.SyncMsgs()
+    assert s.SyncMsgs()
 
 def test_GettheMsgback():
-    a = serv.GetMsg()
+    a = s.GetMsg()
     assert a[0] == "This should be posted"
     

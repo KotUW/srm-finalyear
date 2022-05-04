@@ -2,11 +2,13 @@ from multiprocessing.dummy import Array
 from MessageQueue import MessageQueue as MQ
 
 class serv:
-    msgQ = MQ
+    msgQ = MQ()
 
     def PostMsg(self, msg:str) -> bool:
         """Post a Messgae"""
-        raise NotImplementedError()
+        if self.msgQ.addNewMsg(msg) == None:
+            return True
+        return False
 
     def SyncMsgs(self) -> bool:
         """Publish to blockchain"""

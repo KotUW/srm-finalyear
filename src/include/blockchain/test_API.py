@@ -6,6 +6,7 @@ def test_SendingMsg():
     assert s.PostMsg("This should be posted")
 
 def test_PublishMsg():
+    s.PostMsg("This is for you love")
     assert s.SyncMsgs()
 
 def test_GettheMsgback():

@@ -3,6 +3,7 @@ from MessageQueue import MessageQueue as MQ
 
 class serv:
     msgQ = MQ()
+    currBlock = 0
 
     def PostMsg(self, msg:str) -> bool:
         """Post a Messgae"""
@@ -12,7 +13,12 @@ class serv:
 
     def SyncMsgs(self) -> bool:
         """Publish to blockchain"""
-        raise NotImplementedError()
+        tmp = self.currBlock
+        self.currBlock = self.msgQ.mine()
+
+        if self.currBlock > tmp:
+            return True
+        return False
 
     def GetMsg(self) -> list:
         """Get all the msg the user has missed"""

@@ -9,7 +9,7 @@ class MessageQueue:
         self.chain = Blockchain(1)
         self.chain.CreateGenesisBlock()
 
-    def mine(self):
+    def mine(self) -> int:
         """Basic Mining Function that go through any unconfirmed transactions and try to append them to the blockchain"""
         if not self.unconfirmedMsgs:
             return False
@@ -27,6 +27,8 @@ class MessageQueue:
 
         return newBlck.id
 
-    
     def addNewMsg(self, msg) -> None:
         self.unconfirmedMsgs.append(msg)
+
+    def getQueue(self) -> int:
+        return len(self.unconfirmedMsgs)

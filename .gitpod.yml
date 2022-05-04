@@ -2,6 +2,10 @@ github:
   prebuilds:
     branches: true
 
+gitConfig:
+  core.editor: nano
+  user.email: 46974369+KotUW@users.noreply.github.com
+
 tasks:
   - init: |
       pyenv install 3.10.4

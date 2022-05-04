@@ -1,12 +1,13 @@
 from blockchain import Blockchain, Block
+import time
 
 class MessageQueue:
     unconfirmedMsgs = []
     chain:Blockchain
 
     def __init__(self):
-        chain = Blockchain
-        chain.CreateGenesisBlock(1)
+        self.chain = Blockchain(1)
+        self.chain.CreateGenesisBlock()
 
     def mine(self):
         """Basic Mining Function that go through any unconfirmed transactions and try to append them to the blockchain"""
@@ -15,16 +16,16 @@ class MessageQueue:
         
         lstBlck = self.chain.lastBlck
 
-        newBlck = Block(index=lstBlck.index + 1, 
-                        message = self.unconfirmedMsgs,
+        newBlck = Block(message = self.unconfirmedMsgs,
                         timestamp = time.time(),
-                        prevHash = lstBlck.hash)
+                        prvHash = lstBlck.hash,
+                        index=lstBlck.id + 1,)
         
-        proof = self.pow(newBlck)
+        proof = self.chain.pow(newBlck)
         self.chain.addBlck(newBlck, proof)
         self.unconfirmedMsgs = []
 
-        return newBlck.index
+        return newBlck.id
 
     
     def addNewMsg(self, msg) -> None:

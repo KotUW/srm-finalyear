@@ -1,39 +1,53 @@
 from hashlib import sha512
+from multiprocessing.dummy import Array
 import time
-import json
+# import json
 
 class Block:
-    index:int    # The Block number
+    id:int       # The Block number
     msg:str      # An Array of messages user sent
     tp:time      # The time of driving the proof (use for conflict resolution)
     nounce:int   # The nounce. (required for the proof of work Implementation.)
     prvHash:str  # The hash of the previous hash in the Block Chain
 
-    def __init__(self, index:int, message, timestamp, prvHash, nounce=0):
+    def __init__(self, index, message, timestamp, prvHash, nounce=0):
         self.id = index
         self.msg = message
         self.tp = timestamp
         self.prvHash = prvHash
-        self.nonce = nonce
+        self.nounce = nounce
     
     def computeHash(self):
         """Computing hash form a message"""
 
+        h = sha512()
+        h.update(
+        str(self.id).encode('utf-8') +
+        str(self.msg).encode('utf-8') +
+        str(self.prvHash).encode('utf-8') +
+        str(self.tp).encode('utf-8') +
+        str(self.nounce).encode('utf-8')
+        )
+
+        return h.hexdigest()
         # Using Json beacuse str one is unrelaible and produces exactly the same output
-        blockStr = json.dumps(self.__dict__, sort_keys=True)
-        return sha256(blockStr.encode()).hexdigest
+        # blockStr = json.dumps(self.__dict__, sort_keys=True)
+        # return sha512(blockStr.encode()).hexdigest
 
 
 class Blockchain:
-    chain = []
-    difficulty = 1
+    chain:Array
+    difficulty:int
 
-    def CreateGenesisBlock(self, diff) -> None:
-        genBlk = Block(0, [], time.time(), "0")
+    def __init__(self, diff):
+        self.chain = []
+        self.difficulty = diff
+
+    def CreateGenesisBlock(self) -> None:
+        genBlk = Block(0, [], time.time(), 0)
         genBlk.hash = genBlk.computeHash()
         
         self.chain.append(genBlk)
-        self.difficulty = diff
     
     @property
     def lastBlck(self) -> Block:
@@ -45,19 +59,19 @@ class Blockchain:
         computedHash:str = blck.computeHash()
 
         while not computedHash.startswith('0' * self.difficulty):
-            blck.nonce += 1
+            blck.nounce += 1
             computedHash = blck.computeHash()
     
         return computedHash
 
-    def isValidProof(self, Blck, blckHash) -> bool:
+    def isValidProof(self, blck, blckHash) -> bool:
         """Check a Block's Proof before appending it to the chain"""
-        return (blckHash.startswith('0' * self.difficulty) and blckHash == blck.completeHash())
+        return (blckHash.startswith('0' * self.difficulty) and blckHash == blck.computeHash())
 
     def addBlck(self, blck, proof) -> bool:
         """Fucnction to add Unconfirmed Blocks."""
-        prevBlck = self.lastBlck.hash
-        if prevBlck != blck.prevBlck:
+        prvBlck = self.lastBlck.hash
+        if prvBlck != blck.prvHash:
             throw("Not Synced with Chain different last blocks")
             return False
 

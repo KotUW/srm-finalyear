@@ -3,34 +3,48 @@ import time
 
 class MessageQueue:
     unconfirmedMsgs:list = []
-    chain:Blockchain
+    blockchain:Blockchain
+    currBlock = 0
 
     def __init__(self):
-        self.chain = Blockchain(1)
-        self.chain.CreateGenesisBlock()
+        self.blockchain = Blockchain(1)
+        self.blockchain.CreateGenesisBlock()
 
-    def mine(self) -> int:
-        """Basic Mining Function that go through any unconfirmed transactions and try to append them to the blockchain"""
+    def PushMsgs(self) -> None:
+        """Basic Mining Function that go through any unconfirmed transactions and try to append them to the blockblockchain"""
         if not self.unconfirmedMsgs:
             return False
         
-        lstBlck = self.chain.lastBlck
+        lstBlck = self.blockchain.lastBlck
 
-        newBlck = Block(message = self.unconfirmedMsgs,
+        msgs:str = ""
+        for i in self.unconfirmedMsgs:
+            msgs += i
+
+        newBlck = Block(message = msgs,
                         timestamp = time.time(),
                         prvHash = lstBlck.hash,
                         index=lstBlck.id + 1,)
         
-        proof = self.chain.pow(newBlck)
-        self.chain.addBlck(newBlck, proof)
+        proof = self.blockchain.pow(newBlck)
+        self.blockchain.addBlck(newBlck, proof)
         self.unconfirmedMsgs = []
 
-        return newBlck.id
+        self.currBlock = newBlck.id
 
     def addNewMsg(self, msg) -> None:
         """Api to add msg to queue"""
         self.unconfirmedMsgs.append(msg)
 
-    def getQueue(self) -> int:
+    def getQueueLength(self) -> int:
         """API to know length of current queue"""
         return len(self.unconfirmedMsgs)
+
+    def PullMsgs(self) -> list:
+        """Get new Msgs"""
+        msgs = []
+        if self.blockchain.lastBlck.id > self.currBlock:
+            self.currBlock += 1
+            msgs += self.blockchain.getBlock(self.currBlock).msg
+        
+        return msgs

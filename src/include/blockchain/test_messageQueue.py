@@ -9,6 +9,7 @@ def test_NumberOfMesgs():
     MQ.addNewMsg("First line")
     assert MQ.getQueue() == 1
 
-def test_mining():
+def test_Pushing():
     MQ.addNewMsg("This is Life")
     assert not MQ.mine() == None
+

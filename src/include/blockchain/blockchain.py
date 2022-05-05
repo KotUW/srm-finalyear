@@ -4,11 +4,10 @@ import time
 
 class Block:
     id:int         # The Block number
-    msg:list # An Array of messages user sent
+    msg:str # An Array of messages user sent
     tp:time        # The time of driving the proof (use for conflict resolution)
     nounce:int     # The nounce. (required for the proof of work Implementation.)
     prvHash:str    # The hash of the previous hash in the Block Chain
-    checksum:str
 
     def __init__(self, index, message, timestamp, prvHash, nounce=0):
         self.id = index
@@ -73,7 +72,7 @@ class Blockchain:
         """Fucnction to add Unconfirmed Blocks."""
         prvBlck = self.lastBlck.hash
         if prvBlck != blck.prvHash:
-            throw("Not Synced with Chain different last blocks")
+            # raise Exception("Not Synced with Chain different last blocks")
             return False
 
         if not self.isValidProof(blck, proof):
@@ -83,8 +82,8 @@ class Blockchain:
         self.chain.append(blck)
         return True
 
-    def getBlckId(self,BlckHash:str) -> int:
-        for i in self.chain:
-            i.
+    # Could be optimized by caching the result
+    def getBlock(self,BlockId:str) -> Block:
+        return self.chain[BlockId]
 
 

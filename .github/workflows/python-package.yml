@@ -23,7 +23,7 @@ jobs:
     - name: Set up pipenv
       run: |
         python -m pip install --upgrade pipx
-        python -m pipx install --user pipenv
+        python -m pipx install pipenv
         python -m pipx ensurepath
     - name: Install dependencies
       run: |

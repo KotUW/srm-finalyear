@@ -1,6 +1,7 @@
-from multiprocessing.dummy import Array
 from MessageQueue import MessageQueue as MQ
 
+
+# TODO Mege into Message Queue
 class serv:
     msgQ = MQ()
     currBlock = 0
@@ -11,7 +12,7 @@ class serv:
             return True
         return False
 
-    def SyncMsgs(self) -> bool:
+    def PushMsgs(self) -> bool:
         """Publish to blockchain"""
         tmp = self.currBlock
         self.currBlock = self.msgQ.mine()
@@ -20,6 +21,18 @@ class serv:
             return True
         return False
 
-    def GetMsg(self) -> list:
+    def PullMsgs(self) -> list:
+        """Synced to the current chain."""
+        currBlck = self.msgQ.chain.chain.lastBlck.id
+        msgs = []
+        if currBlck > self.currBlock:
+            while (self.currBlock < currBlck):
+                msgs.append(self.GetMsg(self.currBlock))
+        
+        if len(msgs) > 0:
+            return msgs
+        return None
+    
+    def GetMsg(self, blckId:int) -> str:
         """Get all the msg the user has missed"""
-        raise NotImplementedError()
+        

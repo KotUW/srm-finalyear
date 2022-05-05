@@ -2,7 +2,7 @@ from blockchain import Blockchain, Block
 import time
 
 class MessageQueue:
-    unconfirmedMsgs = []
+    unconfirmedMsgs:list = []
     chain:Blockchain
 
     def __init__(self):

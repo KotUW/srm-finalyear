@@ -1,5 +1,4 @@
 from hashlib import sha512
-from multiprocessing.dummy import Array
 import time
 # import json
 
@@ -9,6 +8,7 @@ class Block:
     tp:time        # The time of driving the proof (use for conflict resolution)
     nounce:int     # The nounce. (required for the proof of work Implementation.)
     prvHash:str    # The hash of the previous hash in the Block Chain
+    checksum:str
 
     def __init__(self, index, message, timestamp, prvHash, nounce=0):
         self.id = index
@@ -36,7 +36,7 @@ class Block:
 
 
 class Blockchain:
-    chain:Array
+    chain:list
     difficulty:int
 
     def __init__(self, diff):
@@ -82,5 +82,9 @@ class Blockchain:
         blck.hash = proof
         self.chain.append(blck)
         return True
+
+    def getBlckId(self,BlckHash:str) -> int:
+        for i in self.chain:
+            i.
 
 

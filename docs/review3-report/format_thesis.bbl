@@ -1,0 +1,41 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{B.~Laurie}{B.~Laurie}{2021}]{rfc9162}
+B.~Laurie, R~Stradling, E.~M. (2021).
+\newblock ``Rfc 9162.
+
+\bibitem[\protect\citeauthoryear{Bateman}{Bateman}{2022}]{banpow}
+Bateman, T. (2022).
+\newblock ``Ban proof of work crypto mining to save energy, eu regulator
+  says.''\ {\em euronews}.
+
+\bibitem[\protect\citeauthoryear{Nakamoto}{Nakamoto}{2014}]{bc}
+Nakamoto, S. (2014).
+\newblock ``Bitcoin: A peer-to-peer electronic cash system" (pdf.''\ {\em
+  Bitcoin RFC}.
+
+\bibitem[\protect\citeauthoryear{PARLIAMENT}{PARLIAMENT}{2022a}]{crybloc}
+PARLIAMENT, E. (2022a).
+\newblock {\em Cryptography and Blockchain}.
+\newblock europress.
+
+\bibitem[\protect\citeauthoryear{PARLIAMENT}{PARLIAMENT}{2022b}]{dsa}
+PARLIAMENT, E. (2022b).
+\newblock ``Digital services act.''\ {\em Proposal for a REGULATION OF THE
+  EUROPEAN PARLIAMENT AND OF THE COUNCIL on a Single Market For Digital
+  Services (Digital Services Act) and amending Directive 2000/31/EC},
+  (52020PC0825).
+
+\bibitem[\protect\citeauthoryear{Platt, Sedlmeir, Platt, Xu, Tasca, Vadgama,
+  and Ibañez}{Platt et~al.}{2021}]{9741872}
+Platt, M., Sedlmeir, J., Platt, D., Xu, J., Tasca, P., Vadgama, N., and
+  Ibañez, J.~I. (2021).
+\newblock ``The energy footprint of blockchain consensus mechanisms beyond
+  proof-of-work.''\  1135--1144.
+
+\bibitem[\protect\citeauthoryear{Y}{Y}{2022}]{survCos}
+Y, X. (2022).
+\newblock ``A survey of distributed consensus protocols for blockchain
+  networks.''\ {\em IEEE Communications Surveys and Tutorials}, 22(14321465).
+
+\end{thebibliography}

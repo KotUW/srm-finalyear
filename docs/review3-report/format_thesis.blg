@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: format_thesis.aux
+The style file: ascelike.bst
+Database file #1: thesis_refer.bib
+Warning--entry type for "rfc9162" isn't style-file defined
+--line 25 of file thesis_refer.bib
+Warning--there's a number but no volume in dsa
+Warning--empty journal in 9741872
+You've used 7 entries,
+            2548 wiz_defined-function locations,
+            603 strings with 5456 characters,
+and the built_in function-call counts, 4046 in all, are:
+= -- 314
+> -- 257
+< -- 24
++ -- 82
+- -- 77
+* -- 317
+:= -- 727
+add.period$ -- 15
+call.type$ -- 7
+change.case$ -- 47
+chr.to.int$ -- 6
+cite$ -- 9
+duplicate$ -- 166
+empty$ -- 251
+format.name$ -- 104
+if$ -- 749
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 7
+newline$ -- 32
+num.names$ -- 68
+pop$ -- 51
+preamble$ -- 1
+purify$ -- 88
+quote$ -- 0
+skip$ -- 165
+stack$ -- 0
+substring$ -- 177
+swap$ -- 43
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 126
+warning$ -- 2
+while$ -- 43
+width$ -- 0
+write$ -- 88
+(There were 3 warnings)

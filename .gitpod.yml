@@ -6,16 +6,18 @@ gitConfig:
   core.editor: nano
   user.email: 46974369+KotUW@users.noreply.github.com
 
-tasks:
-  - init: |
-      pyenv install 3.10.4
-      pyenv local 3.10.4
-      pyenv exec python -m pip install --user pipx
-      pyenv exec python -m pipx ensurepath
-      pyenv exec pipx install pipenv
-      pyenv local 3.10.4
-      pyenv exec pipenv install --dev
-  - command: pipenv shell
+image: gitpod/workspace-python-3.10
+
+# tasks:
+#   - init: |
+#       pyenv install 3.10.4
+#       pyenv local 3.10.4
+#       pyenv exec python -m pip install --user pipx
+#       pyenv exec python -m pipx ensurepath
+#       pyenv exec pipx install pipenv
+#       pyenv local 3.10.4
+#       pyenv exec pipenv install --dev
+#   - command:  pipenv shell
 
 vscode:
   extensions:

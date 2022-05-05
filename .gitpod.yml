@@ -1,5 +1,6 @@
 github:
-  branches: true
+  prebuilds:
+    branches: true
 
 gitConfig:
   core.editor: nano

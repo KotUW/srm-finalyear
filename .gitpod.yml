@@ -1,7 +1,3 @@
-github:
-  prebuilds:
-    branches: true
-
 gitConfig:
   core.editor: nano
   user.email: 46974369+KotUW@users.noreply.github.com
@@ -9,12 +5,13 @@ gitConfig:
 tasks:
   - before: |
       pyenv install 3.10.4
-      pyenv global 3.10.4
-      python -m pip install --user pipx
-      python -m pipx ensurepath
+      pyenv local 3.10.4
+      pyenv exec python -m pip install --user pipx
+      pyenv exec python -m pipx ensurepath
+      pyenv exec pipx install pipenv
   - init: |
-      pipx install pipenv
-      pipenv install --deploy --dev
+      pyenv local 3.10.4
+      pyenv exec pipenv install --dev
   - command: pipenv shell
 
 vscode:

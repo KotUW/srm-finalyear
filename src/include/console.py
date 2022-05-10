@@ -32,12 +32,12 @@ while(True):
     print("Enter your Command > ", end="")
     ip = input().lower()
     if ip == "add":
-        print("Enter your message: ")
+        print("Enter your message: ",end="")
         msg = input()
         MQ.addNewMsg(msg)
     elif ip == "show":
         MQ.blockchain.printChain()
-    elif ip == "push":
+    elif ip == "mine":
         MQ.PushMsgs()
     elif ip == "len":
         print(MQ.getQueueLength())

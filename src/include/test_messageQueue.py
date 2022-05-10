@@ -7,9 +7,9 @@ def test_addMsGToQueue():
     
 def test_NumberOfMesgs():
     MQ.addNewMsg("First line")
-    assert MQ.getQueue() == 1
+    assert MQ.getQueueLength() == 1
 
 def test_Pushing():
     MQ.addNewMsg("This is Life")
-    assert not MQ.mine() == None
+    assert not MQ.PushMsgs() == None
 

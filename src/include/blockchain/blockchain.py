@@ -34,7 +34,7 @@ class Block:
         # return sha512(blockStr.encode()).hexdigest
     
     def __str__(self):
-        return "Block Hash: " + str(self.computedHash()) + "\nBlockNo: " + str(self.id) + "\nBlock Data: " + str(self.msg) + "\nHashes: " + str(self.nonce) + "\n--------------"
+        return "Block Hash: " + str(self.computeHash()) + "\nBlockNo: " + str(self.id) + "\nBlock Data: " + str(self.msg) + "\nHashes: " + str(self.nounce) + "\n--------------"
     
 
 class Blockchain:
@@ -89,7 +89,7 @@ class Blockchain:
     def getBlock(self,BlockId:str) -> Block:
         return self.chain[BlockId]
 
-    def printChain() -> None:
+    def printChain(self) -> None:
         """Prints th whole chain"""
         for blck in self.chain:
             print(blck)

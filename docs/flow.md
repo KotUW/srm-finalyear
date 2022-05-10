@@ -1,21 +1,23 @@
 # User
 
-## Adding User (Sign-up)
+## Sending Message
 
-<!-- create a flow diagram out of this. -->
-1. Create a Block
+1. User types Message
 
-2. Send to server 
+2. A Block is created.
 
-    a. Server checks chain for duplicates
+3. Appended to chain using POW (there will be collisions)
 
-    b. Server computes hash
+4. Chain Refreshed.
 
-    c. Server signs with his private key
 
-    d. Appends to Blockchain and returns
+## Reciving Message
 
-3. Client checks the vlockchain for proof
+1. Chain is downloaded
 
-4. User Created.
+2. The Blocks are decoded
+
+3. Message is displayed
+
+4. User Reads the message.
 

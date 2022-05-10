@@ -32,7 +32,10 @@ class Block:
         # Using Json beacuse str one is unrelaible and produces exactly the same output
         # blockStr = json.dumps(self.__dict__, sort_keys=True)
         # return sha512(blockStr.encode()).hexdigest
-
+    
+    def __str__(self):
+        return "Block Hash: " + str(self.computedHash()) + "\nBlockNo: " + str(self.id) + "\nBlock Data: " + str(self.msg) + "\nHashes: " + str(self.nonce) + "\n--------------"
+    
 
 class Blockchain:
     chain:list
@@ -86,4 +89,8 @@ class Blockchain:
     def getBlock(self,BlockId:str) -> Block:
         return self.chain[BlockId]
 
-
+    def printChain() -> None:
+        """Prints th whole chain"""
+        for blck in self.chain:
+            print(blck)
+            print("\nBlock was mined at ", blck.tp, " =========" )

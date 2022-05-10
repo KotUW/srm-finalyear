@@ -1,4 +1,4 @@
-from blockchain import Blockchain, Block
+from blockchain.blockchain import Blockchain, Block
 import time
 
 class MessageQueue:
